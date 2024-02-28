@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <queries>
+        <package android:name="com.snapchat.android" />
+    </queries>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +18,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HelloSnapchat"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.snap.kit.clientId"
+            android:value="309498f3-cd94-4459-9130-e341f772e9e8" />
+        <meta-data
+            android:name="com.snap.kit.redirectUrl"
+            android:value="myapp://snap-kit/oauth2" />
+        <meta-data
+            android:name="com.snap.kit.scopes"
+            android:resource="@array/snap_connect_scopes" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -20,6 +37,31 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name="com.snap.corekit.SnapKitActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!--
+                    Enter the parts of your redirect url below
+                    e.g., if your redirect url is myapp://snap-kit/oauth2
+                        android:scheme="myapp"
+                        android:host="snap-kit"
+                        android:path="oauth2"
+                !-->
+                <data
+                    android:host="snap-kit"
+                    android:path="oauth2"
+                    android:scheme="myapp" />
+            </intent-filter>
+
         </activity>
     </application>
 
