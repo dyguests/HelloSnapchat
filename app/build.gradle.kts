@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.fanhl.hellosnapchat"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.fanhl.hellosnapchat"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 

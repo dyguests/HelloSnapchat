@@ -58,7 +58,7 @@
                 !-->
                 <data
                     android:host="snap-kit"
-                    android:path="oauth2"
+                    android:path="/oauth2"
                     android:scheme="myapp" />
             </intent-filter>
 
